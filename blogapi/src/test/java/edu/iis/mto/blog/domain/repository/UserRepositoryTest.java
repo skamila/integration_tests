@@ -75,4 +75,13 @@ public class UserRepositoryTest {
 
     }
 
+    @Test
+    public void shouldNotFindUserIfHeAreNotInRepository(){
+
+        List<User> users = repository.findByFirstNameContainingOrLastNameContainingOrEmailContainingAllIgnoreCase("Jan", "Kowalski", "john@domain.com");
+
+        assertThat(users.size(), Is.is(0));
+
+    }
+
 }
