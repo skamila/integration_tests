@@ -84,4 +84,11 @@ public class UserRepositoryTest {
 
     }
 
+    @Test (expected = org.springframework.dao.InvalidDataAccessApiUsageException.class)
+    public void shoulThrowExceptionIfArgumentIsNull(){
+
+        repository.findByFirstNameContainingOrLastNameContainingOrEmailContainingAllIgnoreCase("Jan", "Kowalski", null);
+
+    }
+
 }
